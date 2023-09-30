@@ -1,5 +1,5 @@
 require("dotenv").config({ path: `${__dirname}/../.env` });
-const express = require('express');
+const express = require("express");
 const cors = require("cors");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
@@ -15,21 +15,20 @@ const multer = require("multer");
 const { search } = require("./routes/search");
 const { getMyData } = require("./routes/getMyData");
 
-const storage = multer.memoryStorage()
-const upload = multer({ storage: storage })
+const storage = multer.memoryStorage();
+const upload = multer({ storage: storage });
 
 const app = express();
 app.use(cors());
 app.use(bodyParser.json());
 
 mongoose.connect(process.env.DB_URI, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-    autoIndex: true,
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+  autoIndex: true,
 });
 
-
-app.get('/', (req, res) => res.send('Hello World!'));
+app.get("/", (req, res) => res.send("Hello World!"));
 app.get("/products", getProducts);
 app.get("/my-products", verifyToken, getMyData);
 app.get("/product/:id", getProduct);
@@ -42,5 +41,5 @@ app.post("/signup", signup);
 app.post("/product", upload.single("image"), verifyToken, createProduct);
 
 const listener = app.listen(process.env.PORT || 8080, () => {
-    console.log(`Server listening on ${listener.address().port}`);
-});                                                                                                                                                                                             
+  console.log(`Server listening on ${listener.address().port}`);
+});
