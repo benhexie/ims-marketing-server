@@ -1,6 +1,6 @@
 require("dotenv").config({ path: `${__dirname}/../../.env` });
 const jwt = require("jsonwebtoken");
-const Response = require("../utils/Response");
+const Response = require("../utils/response");
 
 const ACCESS_TOKEN = process.env.ACCESS_TOKEN;
 
