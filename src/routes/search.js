@@ -1,5 +1,5 @@
 const productModel = require("../models/products");
-const Response = require("../utils/Response");
+const Response = require("../utils/response");
 
 const search = async (req, res) => {
   const { success, failed } = new Response(res);

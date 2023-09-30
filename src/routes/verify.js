@@ -1,4 +1,4 @@
-const Response = require("../utils/Response");
+const Response = require("../utils/response");
 
 const verify = (_, res) => {
   const { success } = new Response(res);

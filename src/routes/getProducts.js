@@ -1,5 +1,5 @@
 const productModel = require("../models/products");
-const Response = require("../utils/Response");
+const Response = require("../utils/response");
 
 const getProducts = async (_, res) => {
   const { success, failed } = new Response(res);

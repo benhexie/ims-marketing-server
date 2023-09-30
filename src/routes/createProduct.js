@@ -1,6 +1,6 @@
 const productModel = require("../models/products");
 const userModel = require("../models/users");
-const Response = require("../utils/Response");
+const Response = require("../utils/response");
 const { storeImage } = require("../utils/firebase");
 
 const createProduct = async (req, res) => {

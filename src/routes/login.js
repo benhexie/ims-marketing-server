@@ -1,5 +1,5 @@
 const userModel = require("../models/users");
-const Response = require("../utils/Response");
+const Response = require("../utils/response");
 const { generateToken } = require("../utils/generateToken");
 
 const login = async (req, res) => {
