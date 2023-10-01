@@ -30,7 +30,7 @@ mongoose.connect(process.env.DB_URI, {
 
 app.get("/", (req, res) => res.send("Hello World!"));
 app.get("/products", getProducts);
-app.get("/my-products", verifyToken, getMyData);
+app.get("/my-data", verifyToken, getMyData);
 app.get("/product/:id", getProduct);
 app.get("/category/:category", getByCategory);
 app.get("/verify", verifyToken, verify);
