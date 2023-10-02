@@ -21,8 +21,9 @@ const createProduct = async (req, res) => {
   try {
     const ext = image.originalname.split(".").pop();
     const imagePath = await storeImage(image.buffer, ext);
-    const userData = await userModel.findOne({ _id }, { phone: 1 });
+    const userData = await userModel.findOne({ _id }, { phone: 1, image: 1 });
     if (!userData) return failed("Invalid user", 404);
+    if (!userData.image) return failed("You must upload a profile picture before listing a product.")
 
     const newProduct = new productModel({
       user_id: _id,

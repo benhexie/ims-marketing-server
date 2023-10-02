@@ -14,6 +14,7 @@ const { getByCategory } = require("./routes/getByCategory");
 const multer = require("multer");
 const { search } = require("./routes/search");
 const { getMyData } = require("./routes/getMyData");
+const { uploadPic } = require("./routes/uploadPic");
 
 const storage = multer.memoryStorage();
 const upload = multer({ storage: storage });
@@ -39,6 +40,7 @@ app.get("/search/:product", search);
 app.post("/login", login);
 app.post("/signup", signup);
 app.post("/product", upload.single("image"), verifyToken, createProduct);
+app.post("/upload-pic", upload.single("image"), verifyToken, uploadPic);
 
 const listener = app.listen(process.env.PORT || 8080, () => {
   console.log(`Server listening on ${listener.address().port}`);
