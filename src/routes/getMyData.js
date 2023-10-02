@@ -18,7 +18,10 @@ const getMyData = async (req, res) => {
         user: userData,
         products: productsData,
       });
-    success("No products found", []);
+    success("No products found", {
+      user: userData,
+      products: []
+    });
   } catch (err) {
     failed("Products retrieval failed", 403);
   }
