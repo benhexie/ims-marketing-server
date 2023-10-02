@@ -1,3 +1,4 @@
+require("dotenv").config({ path: `${__dirname}/../../.env` })
 const { initializeApp } = require("firebase/app");
 const {
   getStorage,
@@ -8,7 +9,7 @@ const {
 const { randomBytes } = require("crypto");
 
 const firebaseConfig = {
-  apiKey: "AIzaSyDQsfAjSSq6-hFSDp83pESBRUxE1v8qpzU",
+  apiKey: process.env.FIREBASE_API_KEY,
   authDomain: "ims-marketing.firebaseapp.com",
   projectId: "ims-marketing",
   storageBucket: "ims-marketing.appspot.com",
