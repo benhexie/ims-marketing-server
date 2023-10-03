@@ -12,7 +12,7 @@ const getMyData = async (req, res) => {
       { user_id: 0 },
     );
     const userData = await userModel.findOne({ _id: id }, { _id: 0 });
-    if (!userData) failed("Invalid user", 404);
+    if (!userData) return failed("Invalid user", 404);
     if (productsData.length)
       return success("Products retrived sucessfully", {
         user: userData,
